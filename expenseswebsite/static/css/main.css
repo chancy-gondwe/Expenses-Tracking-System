@@ -1,13 +1,30 @@
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
     }
-}
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    
+    .text-primary {
+        font-weight: 500;
+        user-select: none;
+    }
+    
+    .text-primary:hover {
+        text-decoration: underline;
+    }
+    
+    .alert {
+        transition: opacity 0.5s ease-out;
+    }
+    
+    .alert.fade-out {
+        opacity: 0;
+    }

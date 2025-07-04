@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light border rounded px-3 py-2 mb-0">
+          <li class="breadcrumb-item"><a href="#">Income</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit Income</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-2 text-end">
+      <a href="{% url 'income_delete' income.id %}" class="btn btn-danger btn-sm">Delete</a>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <form action="{% url 'edit-income' income.id %}" method="post">
+        {% include "partials/_messages.html" %}
+        {% csrf_token %}
+
+        <div class="form-group mb-2">
+          <label for="id_amount">Amount</label>
+          <input
+            type="number"
+            step="0.01"
+            id="id_amount"
+            name="amount"
+            class="form-control form-control-sm"
+            value="{{ values.amount|default:income.amount }}"
+          >
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="id_description">Description</label>
+          <input
+            type="text"
+            id="id_description"
+            name="description"
+            class="form-control form-control-sm"
+            value="{{ values.description|default:income.description }}"
+          >
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="id_source">Source</label>
+          <select id="id_source" name="source" class="form-control form-control-sm">
+            <option value="" disabled {% if not values.source and not income.source %}selected{% endif %}>Choose...</option>
+            {% for source in sources %}
+              <option value="{{ source.id }}"
+                {% if values.source == source.id|stringformat:"s" or income.source == source.name %}selected{% endif %}>
+                {{ source.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="id_date">Date of the Income</label>
+          <input
+            type="date"
+            id="id_date"
+            name="date"
+            class="form-control form-control-sm"
+            value="{{ values.date|default:income.date|date:'Y-m-d' }}"
+          >
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Update">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+#header {
+    background: rgb(6, 25, 27);
+    color: #ffffff;
+    padding: 10px;
+  }
+  
+  #branding h1 {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  div.breadcrumbs {
+    background: rgb(0, 62, 69);
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .login .submit-row input {
+      
+      padding: 9px!important;
+  }
+
+
+input[type=submit], 
+input[type=button],
+ .submit-row input
+
+ {
+
+    width: 100%;
+    padding: 20px 40px;
+    border-radius: 4px;
+    color: var(--button-fg);
+    cursor: pointer;
+}
+
+.module h2, 
+.module caption, 
+.inline-group h2{
+  background: rgb(0, 62, 69);
+}
+
+/* the search button in the admin page*/
+#toolbar form input[type=submit] {
+  width: auto;
+}

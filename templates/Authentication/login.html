@@ -1,0 +1,51 @@
+{% extends "base_auth.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="card mt-5 border border-dark shadow-sm" style="border-radius: 0;">
+      <div class="card-header bg-dark text-white text-center" style="border-radius: 0;">
+        <h5 class="mb-0">Login</h5>
+      </div>
+      <div class="card-body p-4">
+        <form method="POST" novalidate>
+          {% include "partials/_messages.html" %}
+          {% csrf_token %}
+
+          <div class="form-group mb-3">
+            <input type="text" name="username" placeholder="Username" id="usernameField"
+              class="form-control form-control-sm border-dark" style="border-radius: 0;" required />
+          </div>
+
+          <div class="form-group mb-3 position-relative">
+            <input type="password" name="password" placeholder="Password" id="passwordField"
+              class="form-control form-control-sm border-dark" style="border-radius: 0;" required />
+            <small class="text-primary position-absolute end-0 top-50 translate-middle-y me-2"
+              id="togglePassword" style="cursor: pointer;">Show</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" style="border-radius: 0;">Login</button>
+
+          <div class="d-flex justify-content-between flex-wrap mt-4 text-sm text-muted">
+            <span>Don't have an account? <a href="{% url 'register' %}" class="text-decoration-none">Register</a></span>
+            <span>Forgot password? <a href="{% url 'request-password' %}" class="text-decoration-none">Reset</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: JavaScript to toggle password visibility -->
+<script>
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordField = document.getElementById("passwordField");
+
+  togglePassword.addEventListener("click", function () {
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+    togglePassword.textContent = type === "password" ? "Show" : "Hide";
+  });
+</script>
+{% endblock %}

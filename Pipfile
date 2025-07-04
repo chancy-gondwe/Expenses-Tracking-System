@@ -8,6 +8,11 @@ django = "*"
 psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
+validate-email = "*"
+python-dotenv = "*"
+six = "*"
+xlwt = "*"
+weasyprint = {extras = ["visual"], version = "*"}
 
 [dev-packages]
 

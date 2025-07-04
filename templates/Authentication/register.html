@@ -1,0 +1,48 @@
+{% extends "base_auth.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="card mt-5 border border-gray shadow-sm" style="border-radius: 0;">
+      <div class="card-header bg-dark text-white text-center" style="border-radius: 0;">
+        <h5 class="mb-0">Register for a Free Account</h5>
+      </div>
+      <div class="card-body p-4">
+        <form method="POST" novalidate>
+          {% include "partials/_messages.html" %}
+          {% csrf_token %}
+
+          <div class="form-group mb-3">
+            <input type="text" name="username" placeholder="Username" id="usernameField"
+              class="form-control form-control-sm border-dark" style="border-radius: 0;"
+              value="{{ fieldValues.username }}" required />
+            <div class="invalid-feedback" id="usernameFeedback"></div>
+          </div>
+
+          <div class="form-group mb-3">
+            <input type="email" name="email" placeholder="Email" id="emailField"
+              class="form-control form-control-sm border-dark" style="border-radius: 0;"
+              value="{{ fieldValues.email }}" required />
+            <div class="invalid-feedback" id="emailFeedback"></div>
+          </div>
+
+          <div class="form-group mb-3 position-relative">
+            <input type="password" name="password" placeholder="Password" id="passwordField"
+              class="form-control form-control-sm border-dark" style="border-radius: 0;" required />
+            <small class="text-primary position-absolute end-0 top-50 translate-middle-y me-2"
+              id="togglePassword" style="cursor: pointer;">Show</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" style="border-radius: 0;">Register</button>
+
+          <div class="d-flex justify-content-between flex-wrap mt-4 text-sm text-muted">
+            <span>Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login here</a></span>
+            <span>Forgot password? <a href="{% url 'request-password' %}" class="text-decoration-none">Reset</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
