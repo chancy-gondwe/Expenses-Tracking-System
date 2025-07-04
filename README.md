@@ -8,8 +8,8 @@
 ![Screenshot (90)](https://github.com/user-attachments/assets/89a02e5e-bf84-45aa-acba-4edfe6b146cd)
 
 
-# 💸 Expenses Manageme
-nt System
+# 💸 Expenses Management System
+
 
 A full-featured Django-based web application that helps users track and manage their personal **expenses** and **income** efficiently, with smart reporting tools and intuitive visual insights.
 
