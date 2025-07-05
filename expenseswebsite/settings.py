@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'expenseswebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'incomeexpensesdb',
-        'USER': 'Chancy',
-        'PASSWORD': 'Chancy@01',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',  # Optional but recommended
     }
