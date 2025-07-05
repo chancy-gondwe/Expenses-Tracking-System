@@ -127,7 +127,7 @@ class RegistrationView(View):
                 send_mail(
                 email_subject, 
                 email_body,
-                "chancygondwe01@gmail.com",  # Replace with your actual email in settings
+                "",  # Replace with your actual email in settings
                 [email],
                 
                 
