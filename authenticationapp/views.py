@@ -246,7 +246,7 @@ Your Website Team
             send_mail(
                 email_subject,
                 email_body,
-                'chancygondwe01@gmail.com',
+                '',
                 [email],
                 
             )
